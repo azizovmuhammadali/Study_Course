@@ -16,8 +16,7 @@ class UserController extends Controller
     use ResponseTrait;
     public function __construct(protected UserServiceInterface $userServiceInterface){}
     public function register(RegisterRequest $register){
-        $status = $register->status ?? 'simple';
-       $userDTO = new UserDTO($register->name,$register->email,$register->password,$status);
+       $userDTO = new UserDTO($register->name,$register->email,$register->password,$register->status);
        $user = $this->userServiceInterface->register($userDTO);
        return $this->success(new UserResource($user),__('messages.user.register'));
     }
