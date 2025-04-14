@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'status',
     ];
 
     /**
@@ -45,5 +46,19 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function isAdmin()
+    {
+        return $this->status === 'admin';
+    }
+
+    public function isPremium()
+    {
+        return $this->status === 'premium';
+    }
+
+    public function isSimple()
+    {
+        return $this->status === 'simple';
     }
 }
