@@ -29,12 +29,18 @@ class UserService implements UserServiceInterface
     }
     }
     public function show($id){
-
+     return $this->userReposityInterface->getById($id);
     }
     public function update($id, $user){
-
+      $data = [
+        'name' => $user->name ?? null,
+        'email' => $user->email ?? null,
+        'password' => $user->password ?? null,
+        'status' => $user->status ?? null, 
+      ];
+      return $this->userReposityInterface->findById($id,$data);
     }
     public function delete($id){
-
+      return $this->userReposityInterface->getById($id);
     }
 }

@@ -14,20 +14,31 @@ class UserReposity implements UserReposityInterface
   $user->password = $data['password'];
   $user->status = $data['status'];
   $user->save();
-  return $user;
+  $token = $user->createToken('auth_login')->plainTextToken;
+  return [
+   'user' => $user,
+   'token' => $token,
+];
    }
    public function loginForm($email){
       return User::where('email', $email)->first();  
   }
   
    public function getById($id){
-
+    $user = User::findOrFail($id);
+    return $user;
    }
    public function findById($id, $data){
-
+      $user = User::findOrFail($id);
+      $user->name = $data['name'] ?? $user->name;
+      $user->email = $data['email'] ?? $user->email;
+      $user->password = $data['password'] ?? $user->password;
+      $user->save();
+      return $user;
    }
    public function destroy($id){
-
+      $user = User::findOrFail($id);
+      $user->delete();
    }
    
 }
