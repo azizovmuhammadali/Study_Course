@@ -18,7 +18,10 @@ class UserController extends Controller
     public function register(RegisterRequest $register){
        $userDTO = new UserDTO($register->name,$register->email,$register->password,$register->status);
        $user = $this->userServiceInterface->register($userDTO);
-       return $this->success(new UserResource($user),__('messages.user.register'));
+       return $this->success([
+        'user' => new UserResource($user['user']),
+        'token' => $user['token']
+    ], __('messages.user.register'));
     }
     public function login(LoginRequest $loginRequest){
         $data = $loginRequest->validated();
