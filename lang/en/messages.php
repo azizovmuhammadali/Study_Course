@@ -8,4 +8,11 @@ return [
 'delete' => 'Data deleted',
 'logout' => 'You have successfully logged out',
 ],
+'category' => [
+    'index' => 'All categories',
+    'create' => 'Category created',
+    'show' => 'Category you searched for',
+    'update' => 'Category updated',
+    'delete' => 'Category deleted'
+     ],
 ];

@@ -8,4 +8,11 @@
    'delete' => 'Malumotlar ochirildi',
    'logout' => 'Tizimdan muvaffaqiyatli chiqdingiz',
    ],
+   'category' => [
+  'index' => 'Hamma Kategoriyalar',
+  'create' => 'Kategoriya yaratildi',
+  'show' => 'Siz izlagan kategoriya',
+  'update' => 'Kategoriya yangilandi',
+  'delete' => 'Kategoriya ochirildi'
+   ],
  ];
