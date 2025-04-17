@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\V1\api\Admin\CategoryController;
+use App\Http\Controllers\V1\api\User\CategoryController as Category;
 use App\Http\Controllers\V1\api\Admin\UserController;
 use App\Http\Controllers\V1\api\User\UserController as User;
 use Illuminate\Http\Request;
@@ -14,6 +16,7 @@ Route::prefix('admin')->group(function(){
     Route::post('login',[UserController::class,'login']);
     Route::middleware(['admin','auth:sanctum'])->group(function(){
         Route::get('logout',[UserController::class,'logout']);
+        Route::apiResource('categories',CategoryController::class);
     });
 });
   Route::prefix('user')->group(function(){
@@ -24,6 +27,8 @@ Route::prefix('admin')->group(function(){
       Route::put('update/{id}',[User::class,'update']);
       Route::delete('delete/{id}',[User::class,'delete']);
       Route::get('logout',[User::class,'logout']);
+      Route::get('categories',[Category::class,'index']);
+      Route::get('categories/{id}',[Category::class,'show']);
     });
   });
 });
