@@ -15,4 +15,11 @@
   'update' => 'Kategoriya yangilandi',
   'delete' => 'Kategoriya ochirildi'
    ],
+   'course' => [
+    'index' => 'Hamma Kurslar',
+    'create' => 'Kurs yaratildi',
+    'show' => 'Siz izlagan kurs',
+    'update' => 'Kurs Yaratildi',
+    'delete' => 'Kurs ochirildi',
+   ],
  ];

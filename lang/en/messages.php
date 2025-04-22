@@ -15,4 +15,11 @@ return [
     'update' => 'Category updated',
     'delete' => 'Category deleted'
      ],
+     'course' => [
+'index' => 'All courses',
+'create' => 'Course created',
+'show' => 'The course you are looking for',
+'update' => 'Course created',
+'delete' => 'Course deleted',
+],
 ];
