@@ -15,11 +15,11 @@ class CategoryController extends Controller
     public function index()
     {
        $categories = $this->categoryServiceInterface->index();
-       return $this->success(CategoryResource::collection($categories->load('parent','children')),__('messages.category.index'));
+       return $this->success(CategoryResource::collection($categories->load('parent','children','courses')),__('messages.category.index'));
     }
     public function show(string $id)
     {
        $category = $this->categoryServiceInterface->show($id);
-       return $this->success(new CategoryResource($category->load('parent','children')),__('messages.category.show'));
+       return $this->success(new CategoryResource($category->load('parent','children','courses')),__('messages.category.show'));
     }
 }
